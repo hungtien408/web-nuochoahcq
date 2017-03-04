@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/en/site.master" AutoEventWireup="true" CodeFile="site-main.master.cs" Inherits="site_main" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="log" Runat="Server">
+    <div class='<%= Session["IsLogin"] != null ? "hidden" : "" %>'>
+        <span class="dn">Sign In</span>
+        /
+        <span class="dk">Sign Up</span>
+    </div>
+    <div class='<%= Session["IsLogin"] == null ? "hidden" : "" %>'>
+        <a class="link-a" href="doi-mat-khau.aspx"><span class="ten-member">Hello <%= Session["FullNameUser"] %></span></a>
+        <div class="taikhoan-member"><a href="dia-chi-giao-hang.aspx">Tài khoản <i class="fa fa-caret-down"></i></a></div>
+
+        <%--<asp:LinkButton ID="lnkLogout" OnClick="lnkLogout_Click" runat="server" CssClass="link-a">Thoát</asp:LinkButton>--%>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+

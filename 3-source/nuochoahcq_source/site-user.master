@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeFile="site-user.master.cs" Inherits="site_user" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="log" runat="Server">
+    <div class='<%= Session["IsLogin"] != null ? "hidden" : "" %>'>
+        <span class="dn">Đăng nhập</span>
+        <br />
+        <span class="dk">Đăng ký</span>
+    </div>
+    <div class='<%= Session["IsLogin"] == null ? "hidden" : "" %>'>
+        <a class="link-a" href="doi-mat-khau.aspx"><span class="ten-member">Chào <%= Session["FullNameUser"] %></span></a>
+        <div class="taikhoan-member"><a href="dia-chi-giao-hang.aspx">Tài khoản <i class="fa fa-caret-down"></i></a></div>        
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="user-wrap container">
+        <div class="user-aside">
+            <h3>Tài khoản</h3>
+            <ul>
+                <%--<li><a href="#">Thông tin tài khoản</a></li>--%>
+                <li><a href="dia-chi-giao-hang.aspx">Địa chỉ giao hàng</a></li>
+                <li><a href="don-hang.aspx">Đơn hàng của tôi</a></li>
+                <li><asp:LinkButton ID="lnkLogout" OnClick="lnkLogout_Click" runat="server">Thoát</asp:LinkButton></li>
+            </ul>
+        </div>
+        <div class="user-main">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+
